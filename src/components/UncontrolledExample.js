@@ -8,8 +8,11 @@ import agriculture from "./../assets/slider/agriculture csc.png"
 import health from "./../assets/slider/health csc.jpeg"
 
 function UncontrolledExample() {
+  const [loading,setLoading]=React.useState(false)
+
   return (
     <Carousel>
+      {/* {loading ? <>Loading...</>:null} */}
       <Carousel.Item>
         <img
           className="d-block w-100 h-[300px] sm:h-[500px] "

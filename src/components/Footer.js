@@ -1,10 +1,11 @@
 import React from 'react'
 import footer from "./../assets/footer.jpg"
 import logo from "./../assets/neeraj_logo.png"
+import { Link } from 'react-router-dom'
 
 //images
 import { AiFillFacebook, AiFillTwitterSquare, AiFillInstagram } from "react-icons/ai"
-import { Link } from 'react-router-dom'
+
 
 const Footer = () => {
     return (
@@ -18,9 +19,22 @@ const Footer = () => {
                             <p>D-117,sangam vihar, ratiya marg new delhi</p>
                             <div className='h-[10px]'></div>
                             <div className='flex'>
-                                <div><AiFillFacebook size={25} /></div>
-                                <div><AiFillTwitterSquare size={25} /></div>
-                                <div><AiFillInstagram size={25} /></div>
+                                <div>
+                                    <Link to="https://www.facebook.com/">
+                                        <AiFillFacebook size={25} />
+                                    </Link>
+                                </div>
+
+                                <div>
+                                <Link to="https://twitter.com/">
+                                    <AiFillTwitterSquare size={25} />
+                                </Link>
+                                    </div>
+                                <div>
+                                <Link to="https://www.instagram.com/">
+                                    <AiFillInstagram size={25} />
+                                    </Link>
+                                    </div>
                             </div>
                         </div>
                         <div className='w-[250px] mt-[10px]'>

@@ -9,6 +9,8 @@ import { API } from './constant'
 import Pan_Card_Image from "./../assets/Pan_Card_Image.jpg"
 import aadhar from "./../assets/aadhar card 1.png"
 import driving from "./../assets/driving-licence.jpg"
+import loading_img from "./../assets/loading.gif"
+
 
 
 //icons
@@ -17,12 +19,16 @@ import { Link } from 'react-router-dom'
 
 const Services = () => {
   const [user, setUser] = useState("")
+  const [loading, setLoading] = React.useState(false)
+
 
   const get_data = () => {
+    setLoading(true)
     axios.get(`${API}/service`)
       .then(res => {
         console.log(res.data.services)
         setUser(res.data.services)
+        setLoading(false)
       })
       .catch(err => {
         console.log(err)
@@ -33,31 +39,36 @@ const Services = () => {
   }, [])
 
   //scroll to top on page change 
-  useEffect(res=>{
+  useEffect(res => {
     window.scrollTo({
-      top:0,
-      left:0,
-      behavior:'smooth'
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
 
     })
-  },[])
+  }, [])
 
 
   return (
     <>
       <Navbar />
       <div>
-        <div className=' bg-[#F5F7F9] p-[15px] mt-[80px]'>
+        <div className=' bg-[#F5F7F9] p-[15px] mt-[80px] '>
           <div className=" text-center text-[35px] font-bold py-[40px] ">
             <h2>Services</h2>
           </div>
-
+          {loading ? <><div className='flex justify-center  w-full h-screen '>
+            <img className='w-[100px] h-[100px] mix-blend-color-lighten' src={loading_img} alt="loading" />
+          </div>
+          </> : null}
           <div className='p-[20px] '>
-          <div className="grid grid-cols-1 gap-6 mb-6  sm:grid-cols-2 lg:grid-cols-3">
-            {
-              user && user.map((item) => {
-                return (
-                  
+
+            <div className="grid grid-cols-1 gap-6 mb-6  sm:grid-cols-2 lg:grid-cols-3">
+
+              {
+                user && user.map((item) => {
+                  return (
+
                     <div className="max-w-sm rounded overflow-hidden shadow-lg">
                       <img className="w-full h-[200px]" src={item.image} alt="Random image" />
                       <div className="px-6 pt-2">
@@ -79,11 +90,11 @@ const Services = () => {
                       </div>
                     </div>
 
-               
-                  
-                );
-              })
-            }
+
+
+                  );
+                })
+              }
             </div>
 
 
