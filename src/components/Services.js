@@ -32,12 +32,22 @@ const Services = () => {
     get_data()
   }, [])
 
+  //scroll to top on page change 
+  useEffect(res=>{
+    window.scrollTo({
+      top:0,
+      left:0,
+      behavior:'smooth'
+
+    })
+  },[])
+
 
   return (
     <>
       <Navbar />
       <div>
-        <div className=' bg-[#F5F7F9] p-[15px]'>
+        <div className=' bg-[#F5F7F9] p-[15px] mt-[80px]'>
           <div className=" text-center text-[35px] font-bold py-[40px] ">
             <h2>Services</h2>
           </div>

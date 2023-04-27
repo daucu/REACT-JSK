@@ -8,7 +8,7 @@ const Navbar = () => {
     const [sidebar, setSidebar] = React.useState(false)
 
     return (
-        <div  className='sticky top-0 bg-white z-[20] border border-solid border-spacing-1'>
+        <div  className='fixed w-full top-0 bg-white z-[20] border border-solid border-spacing-1'>
             <section>
                 <div className='py-[15px] '>
                     <div className='max-w-[1102px] md:m-auto flex md:justify-around justify-between  items-center'>
@@ -32,7 +32,7 @@ const Navbar = () => {
                 {sidebar ? (
                     <div className='z-20 w-full '>
                         <div className='bg-black opacity-[0.5] absolute top-0 left-[100%] w-full h-screen animate-slide_in ' onClick={() => setSidebar(false)}></div>
-                        <div className=' w-[50%] sm:w-[30%] bg-black h-screen absolute top-0 right-0 text-white animate-menu_slide'>
+                        <div className=' w-[60%] sm:w-[50%] bg-black h-screen absolute top-0 right-0 text-white animate-menu_slide'>
                             <div className='' >
                                 <div className='m-[10px]'>
                                     <div className='flex justify-end' onClick={() => setSidebar(false)}><RxCross1 /></div>

@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
 const Contact = () => {
+
+    //scroll to top on page change
+    useEffect(res=>{
+      window.scrollTo({
+        top:0,
+        left:0,
+        behavior:'smooth'
+  
+      })
+    },[])
   return (
     <div>
       <Navbar/>
-      <div> <div className="flex justify-center items-center mt-[30px]">
+      <div> <div className="flex justify-center items-center mt-[100px]">
       <div className="w-full max-w-md">
         <form className="bg-white shadow-lg rounded px-8 pt-6 pb-8 mb-4">
           <div className="mb-4">
