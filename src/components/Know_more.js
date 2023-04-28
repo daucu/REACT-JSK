@@ -8,6 +8,9 @@ import { API } from './constant'
 import aadhar from "./../assets/aadhar card 1.png"
 import loading_img from "./../assets/loading.gif"
 
+//icons
+import { BsWhatsapp } from "react-icons/bs"
+
 
 
 const Know_more = () => {
@@ -15,6 +18,7 @@ const Know_more = () => {
     const [data, setData] = React.useState([])
     const [heading, setHeading] = React.useState([])
     const [description, setDescription] = React.useState([])
+    const [phone, setPhone] = React.useState([])
     const [loading, setLoading] = React.useState(false)
     //get id from search bar
     const id = window.location.pathname.split("/")[2]
@@ -38,6 +42,7 @@ const Know_more = () => {
                 setData(res.data.service.image)
                 setHeading(res.data.service.serv_name)
                 setDescription(res.data.service.description)
+                setPhone(res.data.service.serv_number)
                 setLoading(false)
 
             })
@@ -71,6 +76,12 @@ const Know_more = () => {
                             </div>
                             <div className="sm:w-[70%] text-center flex justify-center items-center m-auto pt-[40px] text-[18px]" id="description_data">
                                 {description}
+                            </div>
+                            <div>
+                                <div className="flex justify-center items-center pt-[40px]">
+                                    
+                                    <a href={`https://wa.me/+91${phone}/?text=`} className='text-[#29A71A] flex items-center'><BsWhatsapp className='mr-[5px]'/>Contact us on whatsapp</a>
+                                    </div>
                             </div>
                         </div>
 
