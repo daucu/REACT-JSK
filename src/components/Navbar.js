@@ -4,6 +4,11 @@ import logo from "./../assets/neeraj_logo.png"
 import { CiMenuBurger } from "react-icons/ci"
 import { RxCross1 } from "react-icons/rx"
 
+//icons
+import {AiOutlineHome} from "react-icons/ai"
+import {MdOutlineMiscellaneousServices} from "react-icons/md"
+import {IoIosContact} from "react-icons/io"
+
 const Navbar = () => {
     const [sidebar, setSidebar] = React.useState(false)
 
@@ -40,12 +45,12 @@ const Navbar = () => {
                                 <div className='w-[100px] h-[50px] m-auto'>
                                     <img src={logo} alt="" />
                                 </div>
-                                <div className=' text-[16px] font-semibold p-[10px]'>
-                                    <Link to="/"><div>Home</div></Link>
+                                <div className=' text-[16px] font-semibold p-[10px] ml-[5px] mt-[20px]'>
+                                    <Link to="/"><div className='py-[5px] flex  items-center'> <div className='mr-[15px]'><AiOutlineHome size={18}/></div><div>Home</div> </div></Link>
 
-                                    <Link to="/services"><div>Services</div></Link>
+                                    <Link to="/services"><div className='py-[5px] flex  items-center'> <div className='mr-[15px]'><MdOutlineMiscellaneousServices size={20}/></div><div>Services</div> </div></Link>
 
-                                    <Link to="/contact"><div>Contact</div></Link>
+                                    <Link to="/contact"><div className='py-[5px] flex  items-center'> <div className='mr-[15px]'><IoIosContact size={20} /></div><div>Contact</div> </div></Link>
                                 </div>
                             </div>
                         </div>
