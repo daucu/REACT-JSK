@@ -98,12 +98,12 @@ const Services = () => {
                         <div class="flex flex-wrap justify-between  items-stretch">
                           <div class="bg-[#09B0C2] text-white mt-[10px] h-[36px] flex justify-center  p-[5px] w-full sm:w-[45%]">
                             <Link to={`/know-more/${item._id}`}>
-                              <h3 class="cursor-pointer text-white p-0">Know more</h3>
+                              <h3 class="cursor-pointer text-white p-0 text-[20px]">Know more</h3>
                             </Link>
                           </div>
                           <div class="w-full sm:w-[45%] mt-[10px] h-[36px]   bg-[#29A71A]">
                             <a href="https://wa.me/+914574454755/?text=" className='w-full h-[36px] flex justify-center items-center'>
-                              <div><BsWhatsapp className='text-white' /></div>
+                              <div><BsWhatsapp className='text-white w-full h-full' /></div>
                             </a>
                           </div>
                         </div>
