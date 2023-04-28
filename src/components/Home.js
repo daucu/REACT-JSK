@@ -27,7 +27,7 @@ const Home = () => {
      
       <div className='w-full h-[800px] mt-[80px]'>
         <UncontrolledExample />
-        <About/>
+        {/* <About/> */}
         <Footer/>
       </div>
     </div>
