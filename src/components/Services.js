@@ -10,12 +10,16 @@ import Pan_Card_Image from "./../assets/Pan_Card_Image.jpg"
 import aadhar from "./../assets/aadhar card 1.png"
 import driving from "./../assets/driving-licence.jpg"
 import loading_img from "./../assets/loading.gif"
+import Other_services from "./../assets/other_services.png"
+
 
 
 
 //icons
 import { BsWhatsapp } from "react-icons/bs"
 import { Link } from 'react-router-dom'
+import { MdDesignServices } from "react-icons/md"
+
 
 const Services = () => {
   const [user, setUser] = useState("")
@@ -57,6 +61,22 @@ const Services = () => {
           <div className=" text-center text-[35px] font-bold py-[40px] ">
             <h2>Services</h2>
           </div>
+          <div className='w-full py-[8px] px-[5px] shadow-md border flex justify-between mb-[10px]'>
+          <div className='flex items-center'>
+            <div className='w-[40px] h-[40px]  rounded-md bg-[#047F8B] flex items-center justify-center'>
+            <MdDesignServices size={30} color='#ffffff' />
+            </div>
+            <div className='font-bold text-[20px] ml-[5px]'>
+              Other Services
+            </div>
+
+          </div> 
+          <div>
+            <Link to='/other-services'>
+            <button className='bg-[#047F8B] p-[8px] z-40  text-white font-semibold'>Other services</button>
+            </Link>
+          </div>
+        </div>
           {loading ? <><div className='flex justify-center  w-full h-screen '>
             <img className='w-[100px] h-[100px] mix-blend-color-lighten' src={loading_img} alt="loading" />
           </div>
