@@ -15,19 +15,20 @@ const Contact = () => {
       email: email,
       message: message
     }
-    console.log(data)
+    // console.log(data)
     axios.post(`${API}/contact`, data,{
       headers: {
         'Content-Type': 'application/json'
       }
     })
       .then(res => {
-        console.log(res.data.message)
+        console.log(res)
         alert(res.data.message)
         window.location.reload()
       })
-      .catch(err => {
-        console.log(err.message)
+      .catch((err) => {
+        console.log(err.response.data.message)
+        alert(err.response.data.message)
       })
   }
 
@@ -76,11 +77,13 @@ const Contact = () => {
               Message
             </label>
             <textarea
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className=" shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
+              maxLength={350}
               placeholder="Your message"
               onChange={(e)=>setMessage(e.target.value)}
             ></textarea>
+            <p className='text-[12px] text-red-500'>maximum 350 characters are allowed</p>
           </div>
           <div className="flex items-center justify-between">
             <button
