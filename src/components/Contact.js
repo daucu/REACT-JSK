@@ -1,8 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import axios from 'axios'
+import { API } from './constant'
 
 const Contact = () => {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+
+  const send_message = () => {
+    const data = {
+      name: name,
+      email: email,
+      message: message
+    }
+    console.log(data)
+    axios.post(`${API}/contact`, data,{
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => {
+        console.log(res.data.message)
+        alert(res.data.message)
+        window.location.reload()
+      })
+      .catch(err => {
+        console.log(err.message)
+      })
+  }
+
 
     //scroll to top on page change
     useEffect(res=>{
@@ -28,6 +56,7 @@ const Contact = () => {
               id="name"
               type="text"
               placeholder="Your name"
+              onChange={(e)=>setName(e.target.value)}
             />
           </div>
           <div className="mb-4">
@@ -39,6 +68,7 @@ const Contact = () => {
               id="email"
               type="email"
               placeholder="Your email"
+              onChange={(e)=>setEmail(e.target.value)}
             />
           </div>
           <div className="mb-6">
@@ -49,12 +79,14 @@ const Contact = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="message"
               placeholder="Your message"
+              onChange={(e)=>setMessage(e.target.value)}
             ></textarea>
           </div>
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={send_message}
             >
               Send
             </button>
